@@ -89,4 +89,10 @@ Starting epoch 10 with weights [2, 3, -4]...
 | 0 | 0 | 1 | -4 | -1 | -1 | 0 |0 | 0 | 2 | 3 |-4 |
 
 Training done with epoch count: 10
+
 Training done with weights: [2, 3, -4]
+
+Predict with (1, 0, 0): -1
+
+Predict with (0, 0, 0): -1
+

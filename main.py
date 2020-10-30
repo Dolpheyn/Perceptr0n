@@ -109,16 +109,15 @@ def predict(weights, inputs):
 
 if(__name__ == "__main__"):
     weights = [0, 0, 0]
-    inputs = OR_INPUTS
+    inputs = AND_INPUTS
     result = train(weights, inputs)
 
-    print(f'Training done with epoch count: {result[0]}')
-    print('')
-    print(f'Training done with weights: {result[1]}')
+    print(f'Training done with epoch count: {result[0]}\n')
+    print(f'Training done with weights: {result[1]}\n')
 
     prediction = predict(weights, (1, 0, 1))
-    print(f'Predict with (1, 0, 0): {prediction}')
+    print(f'Predict with (1, 0, 0): {prediction}\n')
 
     prediction = predict(weights, (0, 0, 1))
-    print(f'Predict with (0, 0, 0): {prediction}')
+    print(f'Predict with (0, 0, 0): {prediction}\n')
 

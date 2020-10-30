@@ -44,4 +44,10 @@ Starting epoch 5 with weights [2, 2, -1]...
 | 0 | 0 | 1 | -1 | -1 | -1 | 0 |0 | 0 | 2 | 2 |-1 |
 
 Training done with epoch count: 5
+
 Training done with weights: [2, 2, -1]
+
+Predict with (1, 0, 0): 1
+
+Predict with (0, 0, 0): -1
+
