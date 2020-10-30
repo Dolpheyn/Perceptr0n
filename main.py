@@ -1,5 +1,34 @@
 ALPHA = 1
 THETA = 0.2
+AND_INPUTS = [
+        {
+            "data": (1, 1, 1), "target": 1
+        },
+        {
+            "data": (1, 0, 1), "target": -1
+        },
+        {
+            "data": (0, 1, 1), "target": -1
+        },
+        {
+            "data": (0, 0, 1), "target": -1
+        },
+]
+
+OR_INPUTS = [
+        {
+            "data": (1, 1, 1), "target": 1
+        },
+        {
+            "data": (1, 0, 1), "target": 1
+        },
+        {
+            "data": (0, 1, 1), "target": 1
+        },
+        {
+            "data": (0, 0, 1), "target": -1
+        },
+]
 
 def dot_product(dot_inputs, dot_weights):
     return \
@@ -74,25 +103,22 @@ def train(weights, inputs):
 
         epoch += 1
 
+def predict(weights, inputs):
+    y_in = dot_product(inputs, weights)
+    return step_fn(y_in)
 
 if(__name__ == "__main__"):
     weights = [0, 0, 0]
-    inputs = [
-            {
-                "data": (1, 1, 1), "target": 1
-            },
-            {
-                "data": (1, 0, 1), "target": 1
-            },
-            {
-                "data": (0, 1, 1), "target": 1
-            },
-            {
-                "data": (0, 0, 1), "target": -1
-            },
-    ]
-
+    inputs = OR_INPUTS
     result = train(weights, inputs)
 
     print(f'Training done with epoch count: {result[0]}')
+    print('')
     print(f'Training done with weights: {result[1]}')
+
+    prediction = predict(weights, (1, 0, 1))
+    print(f'Predict with (1, 0, 0): {prediction}')
+
+    prediction = predict(weights, (0, 0, 1))
+    print(f'Predict with (0, 0, 0): {prediction}')
+
