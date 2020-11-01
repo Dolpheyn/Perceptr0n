@@ -50,10 +50,8 @@ def step(y_in):
         return -1
 
 def weights_is_all_zero(matrix):
-    for row in matrix:
-        for el in row:
-            if el != 0:
-                return False
+    weights = [w for row in matrix for w in row]
+    return not any(n !=0 for n in weights)
 
     return True
 
