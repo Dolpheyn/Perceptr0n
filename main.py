@@ -53,14 +53,11 @@ def weights_is_all_zero(matrix):
     weights = [w for row in matrix for w in row]
     return not any(n !=0 for n in weights)
 
-    return True
-
 def train(weights, inputs):
     epoch = 1
     done = False
 
-
-    for i in range(1, 11):
+    while True:
         print(f'Starting epoch {epoch} with weights {weights}...')
         print('')
 
@@ -104,15 +101,22 @@ def predict(weights, inputs):
 
 if(__name__ == "__main__"):
     weights = [0, 0, 0]
-    inputs = AND_INPUTS
-    result = train(weights, inputs)
+    inputs = OR_INPUTS
 
-    print(f'Training done with epoch count: {result[0]}\n')
-    print(f'Training done with weights: {result[1]}\n')
+    epoch_count, weights = train(weights, inputs)
 
-    prediction = predict(weights, (1, 0, 1))
-    print(f'Predict with (1, 0, 0): {prediction}\n')
+    print(f'Training done with epoch count: {epoch_count}\n')
+    print(f'Training done with weights: {weights}\n')
 
     prediction = predict(weights, (0, 0, 1))
-    print(f'Predict with (0, 0, 0): {prediction}\n')
+    print(f'Predict with (0, 0, 1): {prediction}\n')
+
+    prediction = predict(weights, (0, 1, 1))
+    print(f'Predict with (0, 1, 1): {prediction}\n')
+
+    prediction = predict(weights, (1, 0, 1))
+    print(f'Predict with (1, 0, 1): {prediction}\n')
+
+    prediction = predict(weights, (1, 1, 1))
+    print(f'Predict with (1, 1, 1): {prediction}\n')
 
