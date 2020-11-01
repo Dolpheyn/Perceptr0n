@@ -30,11 +30,8 @@ OR_INPUTS = [
         },
 ]
 
-def dot_product(dot_inputs, dot_weights):
-    return \
-    dot_inputs[0] * dot_weights[0] + \
-    dot_inputs[1] * dot_weights[1] + \
-    dot_inputs[2] * dot_weights[2]
+def dot(dot_inputs, dot_weights):
+    return sum([*map( lambda v: v[0] * v[1], zip(dot_inputs, dot_weights))])
 
 def calc_weight_delta(target, x):
     delta_w = [0, 0, 0]
@@ -44,7 +41,7 @@ def calc_weight_delta(target, x):
 
     return delta_w
 
-def step_fn(y_in):
+def step(y_in):
     if y_in > THETA:
         return 1
     elif -THETA <= y_in <= THETA:
@@ -78,8 +75,8 @@ def train(weights, inputs):
             x = inp.get("data")
             target = inp.get("target")
 
-            y_in = dot_product(x, weights)
-            y = step_fn(y_in)
+            y_in = dot(x, weights)
+            y = step(y_in)
 
             weight_deltas = [0, 0, 0]
             if y != target:
@@ -104,8 +101,8 @@ def train(weights, inputs):
         epoch += 1
 
 def predict(weights, inputs):
-    y_in = dot_product(inputs, weights)
-    return step_fn(y_in)
+    y_in = dot(inputs, weights)
+    return step(y_in)
 
 if(__name__ == "__main__"):
     weights = [0, 0, 0]
