@@ -92,7 +92,11 @@ Training done with epoch count: 10
 
 Training done with weights: [2, 3, -4]
 
-Predict with (1, 0, 0): -1
+Predict with (0, 0, 1): -1
 
-Predict with (0, 0, 0): -1
+Predict with (0, 1, 1): -1
+
+Predict with (1, 0, 1): -1
+
+Predict with (1, 1, 1): 1
 
