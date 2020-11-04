@@ -1,5 +1,7 @@
 # Perceptr0n
 
+**Has been ported to [dolphnet](https://github.com/Dolpheyn/dolphnet)**
+
 A perceptron with parameters:
 
 THETA(θ) - Treshold value
