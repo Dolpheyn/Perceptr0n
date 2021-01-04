@@ -1,5 +1,6 @@
 ALPHA = 1
 THETA = 0.2
+# Edit
 AND_INPUTS = [
         {
             "data": (1, 1, 1), "target": 1
